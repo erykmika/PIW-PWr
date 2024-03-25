@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal contact</title>
+    <link rel="stylesheet" href="css/5_0style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&family=Roboto+Flex:opsz,wght@8..144,300&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navigation">
+        <img class="logo" src="Assets/logo.svg" alt="Logo">
+        <ul class="nav-links">
+            <li><a class="nav-link" href="#">Home</a></li>
+            <li><a class="nav-link" href="#">Find offers</a></li>
+            <li><a class="nav-link" href="#">Add new offers</a></li>
+            <li><a class="nav-link" href="#">Favorites</a></li>
+            <button class="important-btn">Log out</button>
+        </ul>
+        <button class="important-btn menu-btn">Menu</button>
+    </nav>
+
+    <section class="title">
+        <p class="title-text">Serene Retreat</p>
+    </section>
+
+    <dialog id="dialog" class="contact-dialog">
+        <div class="form-placeholder">
+            <div class="form">
+                <div class="cross-container">
+                    <div class="cross" id="cross"></div>
+                </div>
+                <div class="form-details">
+                    <p class="form-title">Contact</p>
+                    <p class="form-prompt">You're contacting the [hotel name] hotel</p>
+                </div>
+                <div class="form-submit-content"><textarea></textarea></div>
+                <div class="form-buttons">
+                    <button>Cancel</button>
+                    <button class="contact-btn"><span>Send</span><span></span></button>
+                </div>
+            </div>
+        </div>
+    </dialog>
+
+    <section class="hotel-details">
+        <section class="hotel-img">&nbsp;<div><span>Add to favorites</span><span></span></div>
+        </section>
+        <section class="side-box">
+            <section class="hotel-description">
+                <p><span class="bold-header">Location:</span> Madrid</p>
+                <p><span class="bold-header">Local category:</span> ★★★★☆</p>
+                <p><span class="bold-header">Price:</span> 70€/room/night</p>
+                <p><span class="bold-header">Description:</span></p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec leo ligula. Etiam fermentum est
+                    in
+                    euismod egestas. Curabitur at condimentum ligula. Phasellus nunc velit, facilisis fermentum
+                    congue
+                    ac,
+                    cursus at leo. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam nec sapien
+                    vitae
+                    neque scelerisque tempus. Vestibulum hendrerit tellus ut pulvinar feugiat. Nullam iaculis vitae
+                    justo
+                    sit amet tempus. Nam nunc nunc, porttitor sed turpis quis, feugiat egestas leo. Phasellus
+                    consequat
+                    magna ante, ac aliquam felis convallis sit amet. Sed massa lorem, iaculis ac vestibulum ac,
+                    tempus a
+                    tortor. Ut posuere ipsum nec condimentum vehicula. Curabitur orci velit, aliquam vel arcu quis,
+                    semper
+                    congue ligula.</p>
+            </section>
+            <!-- Odpowiedni modal po nacisnieciu przycisku -->
+            <button class="contact-btn" id="btn"><span>Contact</span><span></span></button>
+            <section class="lower-img">
+                <section>&nbsp;</section>
+                <section>&nbsp;</section>
+            </section>
+        </section>
+    </section>
+    <script>
+        let dialogBtn = document.getElementById("btn");
+        let cross = document.getElementById("cross");
+
+        dialogBtn.addEventListener("click", () => {
+            dialog.showModal();
+        });
+        cross.addEventListener("click", () => {
+            dialog.close();
+        });
+    </script>
+</body>
+
+</html>

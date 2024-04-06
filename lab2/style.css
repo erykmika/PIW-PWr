@@ -1,0 +1,178 @@
+* {
+    box-sizing: border-box;
+}
+
+.body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bgr {
+    padding: 10vh 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    /* cssgradient.io */
+    background: rgb(238, 174, 202);
+    background: -moz-radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(65, 107, 158, 1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(65, 107, 158, 1) 100%);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(65, 107, 158, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#eeaeca", endColorstr="#416b9e", GradientType=1);
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.todo {
+    width: 70%;
+    height: fit-content;
+    padding: 32px 32px;
+    background-color: rgb(255, 255, 255, 0.65);
+    border-radius: 32px;
+}
+
+.top {
+    padding: 32px 32px;
+}
+
+.spacing {
+    width: 100%;
+    height: 32px;
+}
+
+ul {
+    list-style: none;
+    font-size: large;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 16px;
+    width: 100%;
+    padding: 0;
+}
+
+li {
+    width: 98%;
+    padding: 8px 16px;
+    border: 1px solid rgb(175, 167, 167);
+    border-radius: 8px;
+    min-height: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+}
+
+li>span {
+    height: fit-content;
+    text-decoration: inherit;
+    max-width: 50%;
+}
+
+.task-undone {
+    color: black;
+    text-decoration: none;
+}
+
+.task-done,
+.task-done:hover {
+    color: rgb(103, 102, 101);
+    text-decoration: line-through;
+}
+
+.right-box {
+    width: fit-content;
+    min-width: 256px;
+    max-width: 45%;
+    display: flex;
+    flex-direction: row;
+    column-gap: 10%;
+    align-items: center;
+    justify-content: right;
+    padding: 2px 2px;
+}
+
+
+.cross-btn {
+    border: none;
+    width: 16px;
+    height: 16px;
+    padding: 1px;
+    background-image: url('https://www.svgrepo.com/show/80301/cross.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: inherit;
+}
+
+.dialog-hidden {
+    display: none;
+}
+
+.dialog-shown {
+    margin: 0;
+    width: 100vw;
+    max-width: 100%;
+    max-height: 100%;
+    height: 100vh;
+    background-color: rgba(145, 145, 145, 0.8);
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.dialog-container {
+    padding: 32px 32px;
+    width: 40%;
+    height: 30%;
+    display: flex;
+    flex-direction: row;
+    background-color: rgb(243, 244, 245);
+    border: 1px solid rgb(145, 141, 141);
+    border-radius: 16px;
+    column-gap: 32px;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog-content>button {
+    border: none;
+    border-radius: 8px;
+    width: 128px;
+    height: auto;
+}
+
+.dialog-content {
+    display: flex;
+    flex-direction: row;
+    column-gap: 32px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .todo {
+        width: 100%;
+        padding: 6px 6px;
+    }
+
+    li {
+        width: 100%;
+        padding: 2px 5px;
+    }
+
+    .right-box {
+        column-gap: 0px;
+        justify-content: right;
+    }
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Eryk Mika 264451 -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>ToDo List - EM</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="bgr">
+        <div class="todo">
+            <div class="top">
+                <dialog id="modal" class="dialog-hidden">
+                    <div class="dialog-container">
+                        <div class="dialog-content">
+                            <span id="remove-prompt"></span>
+                            <button id="yes" class="btn btn-primary">Tak</button>
+                            <button id="cancel" class="btn btn-warning">Anuluj</button>
+                        </div>
+                    </div>
+                </dialog>
+                <div class="form-group">
+                    <label for="valueInput">Wpisz treść zadania</label>
+                    <input type="text" class="form-control" placeholder="Wpisz" id="valueInput" required>
+                </div>
+                <button class="btn btn-primary" type="submit" id="addBtn">Dodaj</button>
+                <button class="btn btn-warning" type="submit" id="undoBtn">Cofnij usuwanie</button>
+            </div>
+            <ul id="taskList"></ul>
+        </div>
+    </div>
+    <!-- HTML template for creating list elements in the JS script -->
+    <li class="hidden task-undone" id="template">
+        <span></span>
+        <div class="right-box">
+            <span class="date"></span>
+            <button class="cross-btn"></button>
+        </div>
+    </li>
+    <!-- End of the template -->
+    <script src="script.js"></script>
+</body>
+
+</html>

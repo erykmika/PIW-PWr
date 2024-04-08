@@ -2,17 +2,86 @@
 
 // Bind DOM elements to consts
 const valueInput = document.getElementById("valueInput");
-const taskList = document.getElementById("taskList");
 const modal = document.getElementById("modal");
 const templateTask = document.getElementById("template");
+const radioButtons = document.getElementsByName("list");
+const urgent = document.getElementById("urgent");
+const important = document.getElementById("important");
+const yesterday = document.getElementById("yesterday");
+const urgentList = document.getElementById("taskList-urgent");
+const importantList = document.getElementById("taskList-important");
+const yesterdayList = document.getElementById("taskList-yesterday");
+const yesterdayLabel = document.getElementById("yesterday-label");
+const urgentLabel = document.getElementById("urgent-label");
+const importantLabel = document.getElementById("important-label");
+
+// Selected task list / label
+let taskList = null;
+let selectedLabel = null;
+
+// Bold text CSS class
+const optionSelected = "option-selected";
 
 // Prompt before removing a task
 const REMOVE_PROMPT = "Czy na pewno chcesz usunąć zadanie o treści: ";
 
-// Removed list element that can be restored (undo-ed)
+// Removed list element that can be restored (undo-ed) and its list
 let removedElement = null;
+let removedOrigin = null;
 // List element currently being removed
 let currentlyRemoved = null;
+
+// Add click event listeners to list choice labels
+yesterdayLabel.addEventListener("click", () => {
+    urgentLabel.classList.remove(optionSelected);
+    importantLabel.classList.remove(optionSelected);
+    yesterdayLabel.classList.add(optionSelected);
+});
+
+urgentLabel.addEventListener("click", () => {
+    yesterdayLabel.classList.remove(optionSelected);
+    importantLabel.classList.remove(optionSelected);
+    urgentLabel.classList.add(optionSelected);
+});
+
+importantLabel.addEventListener("click", () => {
+    urgentLabel.classList.remove(optionSelected);
+    yesterdayLabel.classList.remove(optionSelected);
+    importantLabel.classList.add(optionSelected);
+});
+
+// Add click event listeners to list headers
+urgent.addEventListener("click", (event) => {
+    toggleVisibility(urgentList);
+    toggleFontWeight(event.target);
+});
+
+important.addEventListener("click", (event) => {
+    toggleVisibility(importantList);
+    toggleFontWeight(event.target);
+});
+
+yesterday.addEventListener("click", (event) => {
+    toggleVisibility(yesterdayList);
+    toggleFontWeight(event.target);
+});
+
+// Function to toggle list visibility
+const toggleVisibility = (list) => {
+    if (list.classList.contains("hidden")) {
+        list.classList.remove("hidden");
+    } else {
+        list.classList.add("hidden");
+    }
+};
+
+const toggleFontWeight = (text) => {
+    if (text.classList.contains("header-active")) {
+        text.classList.remove("header-active");
+    } else {
+        text.classList.add("header-active");
+    }
+};
 
 // Function for marking task as undone/done
 const doneToggleFunc = (event) => {
@@ -57,6 +126,7 @@ const getTimeNow = () => {
 const handleRemoval = (event) => {
     currentlyRemoved = event.target.closest("li");
     removedElement = currentlyRemoved;
+    removedOrigin = currentlyRemoved.closest("ul");
     document.getElementById("remove-prompt").innerHTML = REMOVE_PROMPT + currentlyRemoved.firstElementChild.innerHTML;
 };
 
@@ -77,6 +147,31 @@ const buildListElement = (text) => {
     return element;
 };
 
+const getSelectedList = () => {
+    let value = null;
+    radioButtons.forEach(element => {
+        if (element.checked) {
+            value = element.value;
+        }
+    });
+    let list = null;
+    switch (value) {
+        case "urgent": {
+            list = urgentList;
+            break;
+        }
+        case "important": {
+            list = importantList;
+            break;
+        }
+        case "yesterday": {
+            list = yesterdayList;
+            break;
+        }
+    }
+    return list;
+};
+
 // Handle adding a list element
 const handleAdd = () => {
     const text = valueInput.value;
@@ -84,7 +179,7 @@ const handleAdd = () => {
         return;
     }
     const item = buildListElement(text);
-    taskList.appendChild(item);
+    getSelectedList().appendChild(item);
     // Clear input after adding
     valueInput.value = "";
 };
@@ -92,7 +187,7 @@ const handleAdd = () => {
 // Handle undoing removal
 const handleUndo = () => {
     if (removedElement !== null) {
-        taskList.appendChild(removedElement);
+        removedOrigin.appendChild(removedElement);
         removedElement = null;
     }
 };

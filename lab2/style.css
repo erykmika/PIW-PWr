@@ -1,5 +1,13 @@
 * {
     box-sizing: border-box;
+    --yesterday: rgba(250, 119, 67, 0.3);
+    --urgent: rgba(243, 229, 70, 0.3);
+    --important: rgba(153, 255, 116, 0.3);
+    --yesterday-o: rgb(250, 119, 67);
+    --urgent-o: rgba(230, 218, 95, 0.64);
+    --important-o: rgb(65, 125, 44);
+    --btn-bgr: rgba(255, 255, 255, 0.244);
+    --btn-bgr-h: rgba(255, 255, 255, 0.037);
 }
 
 .body {
@@ -14,7 +22,7 @@
     width: 100%;
     height: 100%;
     min-height: 100vh;
-    /* cssgradient.io */
+    /* source: cssgradient.io */
     background: rgb(238, 174, 202);
     background: -moz-radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(65, 107, 158, 1) 100%);
     background: -webkit-radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(65, 107, 158, 1) 100%);
@@ -30,7 +38,7 @@
     width: 70%;
     height: fit-content;
     padding: 32px 32px;
-    background-color: rgb(255, 255, 255, 0.65);
+    background-color: rgba(255, 255, 255, 0.65);
     border-radius: 32px;
 }
 
@@ -41,6 +49,30 @@
 .spacing {
     width: 100%;
     height: 32px;
+}
+
+#prompt {
+    user-select: none;
+    font-size: 28px;
+}
+
+.radio-row {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.option-selected {
+    -webkit-box-shadow: inset 0px -1px 39px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: inset 0px -1px 18px 0px rgba(66, 68, 90, 1);
+    box-shadow: inset 0px -1px 1px 0px rgba(66, 68, 90, 1);
+    font-weight: bold;
 }
 
 ul {
@@ -60,7 +92,7 @@ li {
     padding: 8px 16px;
     border: 1px solid rgb(175, 167, 167);
     border-radius: 8px;
-    min-height: 48px;
+    min-height: 50px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -98,7 +130,6 @@ li>span {
     padding: 2px 2px;
 }
 
-
 .cross-btn {
     border: none;
     width: 16px;
@@ -109,6 +140,97 @@ li>span {
     background-position: center;
     background-size: cover;
     background-color: inherit;
+}
+
+.taskList-header {
+    width: 100%;
+    height: fit-content;
+    border: 1px solid #8b8585;
+    border-radius: 32px;
+    display: flex;
+    padding: 8px 16px;
+    align-items: center;
+    font-size: 24px;
+    justify-content: left;
+    user-select: none;
+
+}
+
+.btn-grid-upper {
+    display: grid;
+    min-height: 42px;
+    height: auto;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-grid-upper>label {
+    width: 100%;
+    height: 100%;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    border-radius: 16px;
+    background-color: var(--btn-bgr);
+    user-select: none;
+}
+
+.btn-grid-upper>label:hover {
+    background-color: var(--btn-bgr-h);
+}
+
+.btn-grid-upper label:nth-child(1) {
+    grid-column: 1/2;
+}
+
+.btn-grid-upper label:nth-child(3) {
+    grid-column: 2/3;
+
+}
+
+.btn-grid-upper label:nth-child(5) {
+    grid-column: 3/4;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.btn-grid-lower {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.btn-grid:nth-child(1) {
+    grid-column: 1/2;
+}
+
+.btn-grid:nth-child(2) {
+    grid-column: 2/3;
+}
+
+.header-active {
+    transition: box-shadow 0.5s;
+    -webkit-box-shadow: 0px 2px 26px 9px rgba(97, 115, 138, 0.28);
+    -moz-box-shadow: 0px 5px 26px 9px rgba(97, 115, 138, 0.28);
+    box-shadow: 0px 5px 26px 9px rgba(97, 115, 138, 0.28);
+    font-weight: bold;
+}
+
+#urgent {
+    background-color: var(--urgent);
+}
+
+#important {
+    background-color: var(--important);
+}
+
+#yesterday {
+    background-color: var(--yesterday);
 }
 
 .dialog-hidden {
@@ -131,8 +253,10 @@ li>span {
 
 .dialog-container {
     padding: 32px 32px;
-    width: 40%;
-    height: 30%;
+    min-width: 40%;
+    min-height: 30%;
+    width: fit-content;
+    height: fit-content;
     display: flex;
     flex-direction: row;
     background-color: rgb(243, 244, 245);
@@ -148,6 +272,13 @@ li>span {
     border-radius: 8px;
     width: 128px;
     height: auto;
+}
+
+.list-group {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    padding: 16px 0;
 }
 
 .dialog-content {

@@ -25,26 +25,56 @@
                         </div>
                     </div>
                 </dialog>
-                <div class="form-group">
-                    <label for="valueInput">Wpisz treść zadania</label>
+                <div class="form-group text-bold">
+                    <label for="valueInput" id="prompt">Wpisz treść zadania</label>
                     <input type="text" class="form-control" placeholder="Wpisz" id="valueInput" required>
                 </div>
-                <button class="btn btn-primary" type="submit" id="addBtn">Dodaj</button>
-                <button class="btn btn-warning" type="submit" id="undoBtn">Cofnij usuwanie</button>
+                <div class="btn-grid-upper">
+                    <label for="yesterday-radio" id="yesterday-label">Na wczoraj</label>
+                    <input class="btn-check" type="radio" id="yesterday-radio" name="list" value="yesterday" />
+
+                    <label for="urgent-radio" id="urgent-label">Pilne</label>
+                    <input type="radio" id="urgent-radio" name="list" value="urgent" />
+
+                    <label for="important-radio" id="important-label" class="option-selected">Mało pilne</label>
+                    <input type="radio" id="important-radio" name="list" value="important" checked />
+                </div>
+                <div class="btn-grid-lower">
+                    <button class="btn btn-primary" type="submit" id="addBtn">Dodaj</button>
+                    <button class="btn btn-warning" type="submit" id="undoBtn">Cofnij usuwanie</button>
+                </div>
             </div>
-            <ul id="taskList"></ul>
+
+            <div class="list-group">
+                <div class="taskList-header" id="yesterday">
+                    Na wczoraj
+                </div>
+                <ul id="taskList-yesterday" class="hidden"></ul>
+            </div>
+            <div class="list-group">
+                <div class="taskList-header" id="urgent">
+                    Pilne
+                </div>
+                <ul id="taskList-urgent" class="hidden"></ul>
+            </div>
+            <div class="list-group">
+                <div class="taskList-header" id="important">
+                    Mało pilne
+                </div>
+            </div>
+            <ul id="taskList-important" class="hidden"></ul>
+
         </div>
-    </div>
-    <!-- HTML template for creating list elements in the JS script -->
-    <li class="hidden task-undone" id="template">
-        <span></span>
-        <div class="right-box">
-            <span class="date"></span>
-            <button class="cross-btn"></button>
-        </div>
-    </li>
-    <!-- End of the template -->
-    <script src="script.js"></script>
+        <!-- HTML template for creating list elements in the JS script -->
+        <li class="hidden task-undone" id="template">
+            <span></span>
+            <div class="right-box">
+                <span class="date"></span>
+                <button class="cross-btn"></button>
+            </div>
+        </li>
+        <!-- End of the template -->
+        <script src="script.js"></script>
 </body>
 
 </html>

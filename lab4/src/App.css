@@ -80,11 +80,19 @@ body {
 }
 
 .important-btn {
-  width: 121px;
+  width: 150px;
   height: 34px;
   border-radius: 100px;
   border: none;
   background-color: var(--primary-light);
+}
+
+.manual-btn {
+  width: 92px;
+  height: 34px;
+  border-radius: 100px;
+  border: none;
+  background-color: rgb(196, 172, 34);
 }
 
 .menu-btn {

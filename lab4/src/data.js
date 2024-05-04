@@ -1,10 +1,12 @@
-const hotels = [
-    { id: 1, location: "Florence", title: "Harmony Hideaway Hotel", stars: 5, price: 100 },
-    { id: 2, location: "Madrid", title: "Serene Retreat", stars: 4, price: 70 },
-    { id: 3, location: "Sintra", title: "Palm Springs", stars: 4, price: 65 },
-    { id: 4, location: "Sienna", title: "Oasis Resort", stars: 5, price: 115 }
-]
-
+/* Uploaded to firestore
+const hotelData = {
+    1: { location: "Florence", title: "Harmony Hideaway Hotel", stars: 5, price: 100 },
+    2: { location: "Madrid", title: "Serene Retreat", stars: 4, price: 70 },
+    3: { location: "Sintra", title: "Palm Springs", stars: 4, price: 65 },
+    4: { location: "Sienna", title: "Oasis Resort", stars: 5, price: 115 }
+}
+*/
+// Common to all hotels
 const genericDescription = `
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam nec leo ligula. Etiam fermentum est in
 euismod egestas. Curabitur at condimentum ligula. Phasellus nunc velit, facilisis fermentum congue
@@ -20,4 +22,3 @@ congue ligula.
 `;
 
 export { genericDescription };
-export default hotels;

@@ -86,7 +86,7 @@ body {
 }
 
 .important-btn {
-    width: 121px;
+    width: 150px;
     height: 34px;
     border-radius: 100px;
     border: none;
@@ -129,7 +129,7 @@ body {
     grid-column: 1/6;
     border: none;
     border-radius: var(--radius-large);
-    background-image: url('../Assets/cards2.jpg');
+    background-image: url('../../Assets/cards2.jpg');
     background-position: center center;
     background-size: cover;
     position: relative;
@@ -152,7 +152,7 @@ body {
 .hotel-img>div>span:nth-child(2) {
     border: none;
     border-radius: var(--radius-large);
-    background-image: url('../Assets/heart-empty.svg');
+    background-image: url('../../Assets/heart-empty.svg');
     background-position: center center;
     background-size: cover;
     width: 28px;
@@ -196,19 +196,19 @@ body {
 }
 
 .img1 {
-    background-image: url('../Assets/cards1.jpg');
+    background-image: url('../../Assets/cards1.jpg');
 }
 
 .img2 {
-    background-image: url('../Assets/cards2.jpg');
+    background-image: url('../../Assets/cards2.jpg');
 }
 
 .img3 {
-    background-image: url('../Assets/cards3.jpg');
+    background-image: url('../../Assets/cards3.jpg');
 }
 
 .img4 {
-    background-image: url('../Assets/cards4.jpg');
+    background-image: url('../../Assets/cards4.jpg');
 }
 
 .lower-img>section:nth-child(1) {
@@ -233,7 +233,7 @@ body {
 }
 
 .contact-btn>span:nth-child(2) {
-    background-image: url('../Assets/envelope.svg');
+    background-image: url('../../Assets/envelope.svg');
     background-repeat: no-repeat;
     background-position: center center;
     width: 16px;

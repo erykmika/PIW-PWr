@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const ContactDialog = (props) => {
+
     const dialogRef = useRef(null);
     const textAreaRef = useRef(null);
 
@@ -18,11 +21,15 @@ const ContactDialog = (props) => {
 
     const handleSubmit = () => {
         if (textAreaRef.current) {
-            const userInput = textAreaRef.current.value;
+            const userInput = textAreaRef.current.value.trim();
+            if (userInput.length === 0) {
+                toast.error("Message cannot be empty!", { containerId: 'failure' });
+                return;
+            }
             console.log('User input:', userInput);
         }
+        toast.success("Message has been sent!", { containerId: 'success' });
         closeDialog();
-        alert("Message sent succesfully!");
     };
 
     return (
@@ -49,7 +56,9 @@ const ContactDialog = (props) => {
                         </div>
                     </div>
                 </div>
+                <ToastContainer containerId="failure" />
             </dialog>
+            <ToastContainer containerId="success" />
         </>
     );
 };

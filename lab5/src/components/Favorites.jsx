@@ -26,8 +26,6 @@ export default function Favorites() {
                 .filter(hotel => state.favorites.includes(parseInt(hotel.id)))
                 .map(hotel => LikedHotel(hotel)));
             setLoading(false);
-            console.log("Likes set");
-            console.log(liked);
         }
     }, [hotelData, state.favorites]);
 

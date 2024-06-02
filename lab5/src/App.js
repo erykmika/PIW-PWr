@@ -57,7 +57,7 @@ const AppLayout = () => {
     <>
       <FavoriteProvider>
         <nav className="navigation">
-          <img className="logo" src={logo} alt="Logo" />
+          <a href="/"><img className="logo" src={logo} alt="Logo" /></a>
           <ul className="nav-links">
             {loggedUser && <li>{loggedUser["email"]} </li>}
             <li><a className="nav-link" href="/">Home</a></li>

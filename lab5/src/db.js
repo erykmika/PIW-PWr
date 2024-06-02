@@ -8,10 +8,10 @@ const getHotels = async () => {
 
     const res = []
 
-    doc_refs.forEach(country => {
+    doc_refs.forEach(hotel => {
         res.push({
-            id: country.id,
-            ...country.data()
+            id: hotel.id,
+            ...hotel.data()
         })
     })
     console.log(res);
